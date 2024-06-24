@@ -1,5 +1,275 @@
-*{
-  box-sizing: border-box;
+body {
+  background: #333;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #333;
+  position: relative;
+}
+
+.surrounding-buttons {
+  position: absolute;
+  width: 300px; /* Adjust width and height to control the circle's size */
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.position-0, .position-1, .position-2, .position-3, .position-4 {
+  position: absolute;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes bubble-out-0 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(150px, 0);
+  }
+}
+
+@keyframes bubble-in-0 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(150px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+@keyframes bubble-out-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(47px, 143px);
+  }
+}
+
+@keyframes bubble-in-1 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(47px, 143px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+@keyframes bubble-out-2 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-121px, 88px);
+  }
+}
+
+@keyframes bubble-in-2 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-121px, 88px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+@keyframes bubble-out-3 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-121px, -88px);
+  }
+}
+
+@keyframes bubble-in-3 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-121px, -88px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+@keyframes bubble-out-4 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(47px, -143px);
+  }
+}
+
+@keyframes bubble-in-4 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(47px, -143px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+.surrounding-buttons .position-0.animate-out { 
+  animation: bubble-out-0 0.6s forwards;
+}
+.surrounding-buttons .position-1.animate-out { 
+  animation: bubble-out-1 0.6s forwards;
+}
+.surrounding-buttons .position-2.animate-out { 
+  animation: bubble-out-2 0.6s forwards;
+}
+.surrounding-buttons .position-3.animate-out { 
+  animation: bubble-out-3 0.6s forwards;
+}
+.surrounding-buttons .position-4.animate-out { 
+  animation: bubble-out-4 0.6s forwards;
+}
+
+.surrounding-buttons .position-0.animate-in { 
+  animation: bubble-in-0 0.6s forwards;
+}
+.surrounding-buttons .position-1.animate-in { 
+  animation: bubble-in-1 0.6s forwards;
+}
+.surrounding-buttons .position-2.animate-in { 
+  animation: bubble-in-2 0.6s forwards;
+}
+.surrounding-buttons .position-3.animate-in { 
+  animation: bubble-in-3 0.6s forwards;
+}
+.surrounding-buttons .position-4.animate-in { 
+  animation: bubble-in-4 0.6s forwards;
+}
+
+.nested-buttons {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.nested-position-0, .nested-position-1 {
+  position: absolute;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes nested-bubble-out-0 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(50px, 50px);
+  }
+}
+
+@keyframes nested-bubble-out-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50px, 50px);
+  }
+}
+
+@keyframes nested-bubble-in-0 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(50px, 50px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+@keyframes nested-bubble-in-1 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50px, 50px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+}
+
+.nested-buttons .nested-position-0.animate-out {
+  animation: nested-bubble-out-0 0.6s forwards;
+}
+.nested-buttons .nested-position-1.animate-out {
+  animation: nested-bubble-out-1 0.6s forwards;
+}
+.nested-buttons .nested-position-0.animate-in {
+  animation: nested-bubble-in-0 0.6s forwards;
+}
+.nested-buttons .nested-position-1.animate-in {
+  animation: nested-bubble-in-1 0.6s forwards;
+}
+
+.button {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.button.large {
+  width: 100px;
+  height: 100px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button.small {
+  width: 50px;
+  height: 50px;
+  background-color: #f1c40f;
+  color: white;
+}
+
+.button.extra-small {
+  width: 30px;
+  height: 30px;
+  background-color: #e74c3c;
+  color: white;
 }
